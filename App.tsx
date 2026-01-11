@@ -82,7 +82,6 @@ const App: React.FC = () => {
       <section className="flex flex-col items-center pt-12 pb-12 min-h-screen justify-start overflow-hidden relative">
         {/* Spline 3D Image Container */}
         <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden flex items-center justify-center bg-white/5">
-          {/* Updated iframe as requested: width='8000%', height='1000%', frameBorder='-10' */}
           <iframe 
             src='https://my.spline.design/interactivecharactergirl-MVNUAdogrsMEuxlLKVnsyyZB/' 
             frameBorder='-10' 
@@ -95,8 +94,8 @@ const App: React.FC = () => {
           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#FDFCF0] to-transparent z-10"></div>
         </div>
 
-        {/* Hero Card */}
-        <div className="w-full max-w-md px-6 z-20 relative -mt-32 md:-mt-40">
+        {/* Hero Card - Moved further down by changing negative margin to positive */}
+        <div className="w-full max-w-md px-6 z-20 relative mt-4 md:mt-8">
           <div className="bg-white/90 backdrop-blur-2xl p-8 rounded-[3rem] border-[6px] border-white shadow-[0_25px_60px_rgba(0,0,0,0.2)] animate-float text-center">
             <h1 className="text-4xl font-jua text-blue-600 leading-tight mb-3">
               당신의 <br />
