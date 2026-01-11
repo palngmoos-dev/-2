@@ -80,10 +80,10 @@ const App: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center pt-16 pb-10 min-h-screen justify-start">
-        {/* Spline 3D Image Container - Elevated position and Full Visibility */}
-        <div className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden">
-          <div className="absolute inset-0">
+      <section className="flex flex-col items-center pt-16 pb-10 min-h-[70vh] justify-start">
+        {/* Spline 3D Image Container - Reduced height (approx. half of previous) and shifted for face focus */}
+        <div className="relative w-full h-[25vh] md:h-[35vh] overflow-hidden">
+          <div className="absolute inset-0 transform scale-[2.2] translate-y-[35%]">
             <iframe 
               src='https://my.spline.design/interactivecharactergirl-MVNUAdogrsMEuxlLKVnsyyZB/' 
               frameBorder='0' 
@@ -96,7 +96,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Hero Card */}
-        <div className="w-full max-w-md px-6 z-10 -mt-12 md:-mt-20">
+        <div className="w-full max-w-md px-6 z-10 -mt-2">
           <div className="bg-white/85 backdrop-blur-xl p-6 rounded-[2.5rem] border-[4px] border-white shadow-2xl animate-float text-center">
             <h1 className="text-3xl font-jua text-blue-600 leading-tight mb-2">
               당신의 <br />
