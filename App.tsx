@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { CITIES } from './constants';
 import { generateTravelItinerary } from './services/geminiService';
@@ -81,18 +80,17 @@ const App: React.FC = () => {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center pt-12 pb-12 min-h-screen justify-start overflow-hidden relative">
-        {/* Spline 3D Image Container - Large 80vh height with 200% inner height for depth */}
-        <div className="relative w-full h-[80vh] overflow-hidden">
-          <div className="absolute inset-0 transform scale-[1.5] translate-y-[-10%] md:translate-y-[-15%]">
-            <iframe 
-              src='https://my.spline.design/interactivecharactergirl-MVNUAdogrsMEuxlLKVnsyyZB/' 
-              frameBorder='0' 
-              width='100%' 
-              height='200%'
-              title="Spline 3D Character"
-              className="pointer-events-auto"
-            ></iframe>
-          </div>
+        {/* Spline 3D Image Container */}
+        <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden flex items-center justify-center bg-white/5">
+          {/* Updated iframe as requested: width='8000%', height='1000%', frameBorder='-10' */}
+          <iframe 
+            src='https://my.spline.design/interactivecharactergirl-MVNUAdogrsMEuxlLKVnsyyZB/' 
+            frameBorder='-10' 
+            width='8000%' 
+            height='1000%'
+            title="Spline 3D Character"
+            className="pointer-events-auto"
+          ></iframe>
           {/* Bottom Gradient for smooth transition */}
           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#FDFCF0] to-transparent z-10"></div>
         </div>
