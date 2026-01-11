@@ -27,6 +27,10 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleCreateItinerary = async () => {
     if (!searchQuery.trim()) return;
     setLoading(true);
@@ -63,9 +67,12 @@ const App: React.FC = () => {
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 px-4 py-3 md:px-6 md:py-4 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-yellow-100' : 'bg-transparent'}`}>
         <div className="max-w-md mx-auto flex justify-between items-center">
-          <div className="text-xl md:text-2xl font-jua text-rose-500 flex items-center gap-2">
+          <button 
+            onClick={scrollToTop}
+            className="text-xl md:text-2xl font-jua text-rose-500 flex items-center gap-2 cursor-pointer focus:outline-none active:scale-95 transition-transform"
+          >
             <span className="text-2xl">🎨</span> 아름다운 여행
-          </div>
+          </button>
           <a href="#contact-form" className="bg-rose-500 text-white px-4 py-1.5 rounded-full shadow-lg hover:bg-rose-600 transition-all font-jua text-sm">
             상담
           </a>
@@ -73,23 +80,23 @@ const App: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center pt-16 pb-10 min-h-screen">
-        {/* Spline 3D Image Container */}
-        <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mt-4">
-          <div className="absolute inset-0 transform scale-[1.1] translate-y-[-2%]">
+      <section className="flex flex-col items-center pt-16 pb-10 min-h-screen justify-start">
+        {/* Spline 3D Image Container - Elevated position and Full Visibility */}
+        <div className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden">
+          <div className="absolute inset-0">
             <iframe 
               src='https://my.spline.design/interactivecharactergirl-MVNUAdogrsMEuxlLKVnsyyZB/' 
               frameBorder='0' 
               width='100%' 
               height='100%'
               title="Spline 3D Character"
-              className="pointer-events-none"
+              className="pointer-events-auto"
             ></iframe>
           </div>
         </div>
 
         {/* Hero Card */}
-        <div className="w-full max-w-md px-6 -mt-16 z-10">
+        <div className="w-full max-w-md px-6 z-10 -mt-12 md:-mt-20">
           <div className="bg-white/85 backdrop-blur-xl p-6 rounded-[2.5rem] border-[4px] border-white shadow-2xl animate-float text-center">
             <h1 className="text-3xl font-jua text-blue-600 leading-tight mb-2">
               당신의 <br />
@@ -275,7 +282,7 @@ const App: React.FC = () => {
       {/* Floating Action Button */}
       <div className="fixed bottom-6 right-6 z-50">
         <button 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={scrollToTop}
           className="w-14 h-14 bg-yellow-400 rounded-2xl shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-transform border-[4px] border-white"
         >
           <span className="text-2xl">👆</span>
