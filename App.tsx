@@ -84,9 +84,9 @@ const App: React.FC = () => {
         <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden flex items-center justify-center bg-white/5">
           <iframe 
             src='https://my.spline.design/interactivecharactergirl-MVNUAdogrsMEuxlLKVnsyyZB/' 
-            frameBorder='-10' 
-            width='8000%' 
-            height='1000%'
+            frameBorder='0' 
+            width='20000%' 
+            height='500%'
             title="Spline 3D Character"
             className="pointer-events-auto"
           ></iframe>
@@ -94,7 +94,7 @@ const App: React.FC = () => {
           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#FDFCF0] to-transparent z-10"></div>
         </div>
 
-        {/* Hero Card - Moved further down by changing negative margin to positive */}
+        {/* Hero Card - Positioned below the 3D character */}
         <div className="w-full max-w-md px-6 z-20 relative mt-4 md:mt-8">
           <div className="bg-white/90 backdrop-blur-2xl p-8 rounded-[3rem] border-[6px] border-white shadow-[0_25px_60px_rgba(0,0,0,0.2)] animate-float text-center">
             <h1 className="text-4xl font-jua text-blue-600 leading-tight mb-3">
