@@ -80,10 +80,10 @@ const App: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center pt-16 pb-10 min-h-[70vh] justify-start">
-        {/* Spline 3D Image Container - Reduced height (approx. half of previous) and shifted for face focus */}
-        <div className="relative w-full h-[25vh] md:h-[35vh] overflow-hidden">
-          <div className="absolute inset-0 transform scale-[2.2] translate-y-[35%]">
+      <section className="flex flex-col items-center pt-24 pb-16 min-h-[110vh] justify-start overflow-hidden relative">
+        {/* Spline 3D Image Container - Massive scale (4x feeling) and centered on face */}
+        <div className="relative w-full h-[85vh] md:h-[90vh] overflow-hidden">
+          <div className="absolute inset-0 transform scale-[5.8] translate-y-[24%] md:translate-y-[20%]">
             <iframe 
               src='https://my.spline.design/interactivecharactergirl-MVNUAdogrsMEuxlLKVnsyyZB/' 
               frameBorder='0' 
@@ -95,9 +95,9 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Hero Card */}
-        <div className="w-full max-w-md px-6 z-10 -mt-2">
-          <div className="bg-white/85 backdrop-blur-xl p-6 rounded-[2.5rem] border-[4px] border-white shadow-2xl animate-float text-center">
+        {/* Hero Card - Overlapping at the bottom of the huge character */}
+        <div className="w-full max-w-md px-6 z-10 -mt-40 md:-mt-52 relative">
+          <div className="bg-white/90 backdrop-blur-2xl p-7 rounded-[2.5rem] border-[5px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] animate-float text-center">
             <h1 className="text-3xl font-jua text-blue-600 leading-tight mb-2">
               당신의 <br />
               <span className="text-rose-500 underline decoration-yellow-300 decoration-wavy">유럽 이야기</span>
@@ -112,12 +112,12 @@ const App: React.FC = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleCreateItinerary()}
                 placeholder="어디로 떠날까요? (예: 파리 3일)"
-                className="w-full pl-5 pr-12 py-4 text-base rounded-full border-[3px] border-yellow-300 focus:border-rose-400 outline-none shadow-lg text-gray-800 placeholder-gray-400 font-gaegu transition-all"
+                className="w-full pl-6 pr-14 py-4.5 text-base rounded-full border-[3px] border-yellow-300 focus:border-rose-400 outline-none shadow-lg text-gray-800 placeholder-gray-400 font-gaegu transition-all"
               />
               <button 
                 onClick={handleCreateItinerary}
                 disabled={loading}
-                className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white p-2.5 rounded-full transition-all shadow-md active:scale-90"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full transition-all shadow-md active:scale-90"
               >
                 {loading ? (
                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -132,20 +132,20 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Popular Cities - Compact Size */}
-      <section id="cities" className="py-8 bg-white">
+      {/* Popular Cities */}
+      <section id="cities" className="py-12 bg-white">
         <div className="px-6 max-w-md mx-auto">
-          <div className="mb-5">
-            <h2 className="text-xl font-jua text-amber-500">인기 도시 조각</h2>
-            <div className="w-10 h-1 bg-rose-400 rounded-full mt-1"></div>
+          <div className="mb-6">
+            <h2 className="text-2xl font-jua text-amber-500">인기 도시 조각</h2>
+            <div className="w-12 h-1.5 bg-rose-400 rounded-full mt-1.5"></div>
           </div>
         </div>
         
-        <div className="flex gap-3 overflow-x-auto no-scrollbar px-6 snap-x pb-4">
+        <div className="flex gap-4 overflow-x-auto no-scrollbar px-6 snap-x pb-6">
           {CITIES.map((city) => (
             <div 
               key={city.id} 
-              className="flex-shrink-0 w-[42vw] snap-start relative aspect-[3/4] rounded-[1.5rem] overflow-hidden shadow-md transition-transform active:scale-95"
+              className="flex-shrink-0 w-[48vw] md:w-56 snap-start relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-lg transition-transform active:scale-95"
             >
               <img 
                 src={city.image} 
@@ -153,13 +153,13 @@ const App: React.FC = () => {
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-4 w-full">
-                <div className={`inline-block px-2 py-0.5 ${city.color} text-white font-jua rounded-full text-[7px] mb-1 uppercase tracking-widest`}>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-5 w-full">
+                <div className={`inline-block px-2.5 py-1 ${city.color} text-white font-jua rounded-full text-[8px] mb-2 uppercase tracking-widest`}>
                   {city.engName}
                 </div>
-                <h3 className="text-xl font-jua text-white mb-0.5">{city.name}</h3>
-                <p className="text-white/80 font-gaegu text-xs line-clamp-1">{city.description}</p>
+                <h3 className="text-2xl font-jua text-white mb-0.5">{city.name}</h3>
+                <p className="text-white/90 font-gaegu text-sm line-clamp-1">{city.description}</p>
               </div>
             </div>
           ))}
@@ -168,34 +168,34 @@ const App: React.FC = () => {
 
       {/* Planner Result Section */}
       {itinerary && (
-        <section id="itinerary-result" className="py-10 bg-amber-50 px-6">
-          <div className="max-w-md mx-auto bg-white p-6 rounded-[2.5rem] border-[4px] border-yellow-200 shadow-xl relative">
-            <h3 className="text-2xl font-jua text-blue-600 mb-6 text-center leading-tight">
+        <section id="itinerary-result" className="py-14 bg-amber-50 px-6">
+          <div className="max-w-md mx-auto bg-white p-7 rounded-[3rem] border-[5px] border-yellow-200 shadow-2xl relative">
+            <h3 className="text-2xl font-jua text-blue-600 mb-8 text-center leading-tight">
               🎈 {itinerary.title}
             </h3>
             
-            <div className="space-y-6 mb-8">
+            <div className="space-y-8 mb-10">
               {itinerary.days.map((d) => (
-                <div key={d.day} className="flex gap-4">
-                  <div className="flex-shrink-0 w-9 h-9 bg-amber-400 rounded-full flex items-center justify-center text-white font-jua text-lg shadow-md border-2 border-white">
+                <div key={d.day} className="flex gap-5">
+                  <div className="flex-shrink-0 w-11 h-11 bg-amber-400 rounded-2xl flex items-center justify-center text-white font-jua text-xl shadow-lg border-2 border-white rotate-3">
                     {d.day}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-lg font-jua text-gray-800 mb-0.5">{d.activity}</h4>
-                    <p className="text-sm font-gaegu text-gray-600 leading-relaxed">{d.description}</p>
+                    <h4 className="text-xl font-jua text-gray-800 mb-1">{d.activity}</h4>
+                    <p className="text-base font-gaegu text-gray-600 leading-relaxed">{d.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="bg-emerald-50 p-5 rounded-[1.5rem] border-2 border-emerald-100">
-              <h4 className="text-base font-jua text-emerald-600 mb-3 flex items-center gap-2">
-                <span className="text-xl">🎒</span> 여행 작가의 팁
+            <div className="bg-emerald-50 p-6 rounded-[2rem] border-2 border-emerald-100">
+              <h4 className="text-lg font-jua text-emerald-600 mb-4 flex items-center gap-2">
+                <span className="text-2xl">🎒</span> 여행 작가의 팁
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {itinerary.tips.map((tip, idx) => (
-                  <li key={idx} className="font-gaegu text-sm text-gray-700 flex items-start gap-2">
-                    <span className="text-emerald-500 font-bold">•</span> {tip}
+                  <li key={idx} className="font-gaegu text-base text-gray-700 flex items-start gap-3">
+                    <span className="text-emerald-500 font-bold text-lg">•</span> {tip}
                   </li>
                 ))}
               </ul>
@@ -205,24 +205,24 @@ const App: React.FC = () => {
       )}
 
       {/* Checklist Grid */}
-      <section id="checklist" className="py-12 px-6 bg-white">
+      <section id="checklist" className="py-16 px-6 bg-white">
         <div className="max-w-md mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-10">
             <h2 className="text-2xl font-jua text-blue-600 mb-2">떠나기 전 체크!</h2>
-            <p className="text-lg font-gaegu font-bold text-gray-400">설레는 시작을 위한 준비물</p>
+            <p className="text-lg font-gaegu font-bold text-gray-400">설레는 시작을 위한 필수 조각들</p>
           </div>
           
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-5">
             {[
               { emoji: '🎫', title: 'ETIAS 허가', desc: '유럽 입국 필수 온라인 신청을 잊지 마세요.', color: 'bg-rose-50', border: 'border-rose-100' },
               { emoji: '🗓️', title: '90일 법칙', desc: '무비자 90일! 일정 계산이 가장 중요해요.', color: 'bg-amber-50', border: 'border-amber-100' },
               { emoji: '🚂', title: '교통편 예약', desc: '가까운 곳은 기차, 먼 곳은 저가 항공을!', color: 'bg-blue-50', border: 'border-blue-100' }
             ].map((item, i) => (
-              <div key={i} className={`${item.color} p-6 rounded-[1.8rem] border-b-4 ${item.border} flex items-center gap-5 shadow-sm`}>
-                <div className="text-3xl">{item.emoji}</div>
+              <div key={i} className={`${item.color} p-7 rounded-[2rem] border-b-4 ${item.border} flex items-center gap-6 shadow-md transition-transform hover:-translate-y-1`}>
+                <div className="text-4xl">{item.emoji}</div>
                 <div>
-                  <h4 className="text-lg font-jua text-gray-800 mb-0.5">{item.title}</h4>
-                  <p className="font-gaegu text-sm text-gray-600 leading-snug">{item.desc}</p>
+                  <h4 className="text-xl font-jua text-gray-800 mb-1">{item.title}</h4>
+                  <p className="font-gaegu text-base text-gray-600 leading-snug">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -231,26 +231,26 @@ const App: React.FC = () => {
       </section>
 
       {/* Consultation Form */}
-      <section id="contact-form" className="py-12 bg-[#FFF9E6] px-6">
-        <div className="max-w-md mx-auto bg-white p-7 rounded-[2.5rem] shadow-xl border-[4px] border-rose-100">
-          <div className="text-center mb-7">
-            <h2 className="text-2xl font-jua text-rose-500 mb-1.5">상담 신청</h2>
-            <p className="text-lg font-gaegu font-bold text-gray-500">
+      <section id="contact-form" className="py-16 bg-[#FFF9E6] px-6">
+        <div className="max-w-md mx-auto bg-white p-8 rounded-[3rem] shadow-2xl border-[5px] border-rose-100">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-jua text-rose-500 mb-2">상담 신청</h2>
+            <p className="text-xl font-gaegu font-bold text-gray-500">
               당신의 여행 작가가 기다려요.
             </p>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="space-y-4">
-            <input required type="text" placeholder="성함" className="w-full px-5 py-3 rounded-xl border-2 border-gray-100 focus:border-blue-400 outline-none font-gaegu text-base bg-gray-50 shadow-inner" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
-            <input required type="tel" placeholder="연락처" className="w-full px-5 py-3 rounded-xl border-2 border-gray-100 focus:border-amber-400 outline-none font-gaegu text-base bg-gray-50 shadow-inner" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
-            <input required type="email" placeholder="이메일 주소" className="w-full px-5 py-3 rounded-xl border-2 border-gray-100 focus:border-emerald-400 outline-none font-gaegu text-base bg-gray-50 shadow-inner" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
-            <input type="text" placeholder="카카오톡 ID (선택)" className="w-full px-5 py-3 rounded-xl border-2 border-gray-100 focus:border-rose-400 outline-none font-gaegu text-base bg-gray-50 shadow-inner" value={formData.kakao} onChange={(e) => setFormData({...formData, kakao: e.target.value})} />
+          <form onSubmit={handleFormSubmit} className="space-y-5">
+            <input required type="text" placeholder="성함" className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-blue-400 outline-none font-gaegu text-lg bg-gray-50 shadow-inner" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
+            <input required type="tel" placeholder="연락처" className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-amber-400 outline-none font-gaegu text-lg bg-gray-50 shadow-inner" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
+            <input required type="email" placeholder="이메일 주소" className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-emerald-400 outline-none font-gaegu text-lg bg-gray-50 shadow-inner" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
+            <input type="text" placeholder="카카오톡 ID (선택)" className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-rose-400 outline-none font-gaegu text-lg bg-gray-50 shadow-inner" value={formData.kakao} onChange={(e) => setFormData({...formData, kakao: e.target.value})} />
 
-            <div className="pt-4">
+            <div className="pt-6">
               <button 
                 type="submit" 
                 disabled={submitting}
-                className={`w-full py-4.5 text-white text-xl font-jua rounded-[2rem] shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95 ${submitting ? 'bg-gray-400' : 'bg-rose-500 hover:bg-rose-600'}`}
+                className={`w-full py-5 text-white text-2xl font-jua rounded-[2.5rem] shadow-2xl transition-all flex items-center justify-center gap-3 active:scale-95 ${submitting ? 'bg-gray-400' : 'bg-rose-500 hover:bg-rose-600'}`}
               >
                 {submitting ? '전송 중...🕊️' : '여행 시작하기 ✨'}
               </button>
@@ -260,32 +260,32 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-gray-900 text-white text-center px-6">
+      <footer className="py-16 bg-gray-900 text-white text-center px-6">
         <div className="max-w-md mx-auto">
-          <div className="text-2xl font-jua text-rose-500 mb-3">아름다운 여행</div>
-          <p className="font-gaegu text-base text-gray-400 mb-8 leading-relaxed px-4">
+          <div className="text-3xl font-jua text-rose-500 mb-4">아름다운 여행</div>
+          <p className="font-gaegu text-lg text-gray-400 mb-10 leading-relaxed px-4">
             모든 골목이 당신의 무대가 되고,<br /> 모든 순간이 반짝이는 추억이 되길.
           </p>
-          <div className="flex justify-center gap-4 mb-10">
+          <div className="flex justify-center gap-5 mb-12">
             {['📷', '💬', '📍'].map((icon, i) => (
-              <div key={i} className="w-11 h-11 bg-white/10 rounded-full flex items-center justify-center cursor-pointer hover:bg-rose-500 transition-all text-lg">
+              <div key={i} className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center cursor-pointer hover:bg-rose-500 transition-all text-xl hover:rotate-12">
                 {icon}
               </div>
             ))}
           </div>
-          <div className="text-gray-500 font-gaegu text-xs border-t border-white/10 pt-8">
+          <div className="text-gray-500 font-gaegu text-sm border-t border-white/10 pt-10">
             © 2026 아름다운 여행 · Have a Safe Trip!
           </div>
         </div>
       </footer>
 
       {/* Floating Action Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-8 right-8 z-50">
         <button 
           onClick={scrollToTop}
-          className="w-14 h-14 bg-yellow-400 rounded-2xl shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-transform border-[4px] border-white"
+          className="w-16 h-16 bg-yellow-400 rounded-3xl shadow-[0_15px_30px_rgba(250,204,21,0.4)] flex items-center justify-center hover:scale-110 active:scale-90 transition-all border-[5px] border-white group"
         >
-          <span className="text-2xl">👆</span>
+          <span className="text-3xl group-hover:-translate-y-1 transition-transform">👆</span>
         </button>
       </div>
     </div>
