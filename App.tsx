@@ -80,29 +80,31 @@ const App: React.FC = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center pt-24 pb-16 min-h-[110vh] justify-start overflow-hidden relative">
-        {/* Spline 3D Image Container - Massive scale (4x feeling) and centered on face */}
-        <div className="relative w-full h-[85vh] md:h-[90vh] overflow-hidden">
-          <div className="absolute inset-0 transform scale-[5.8] translate-y-[24%] md:translate-y-[20%]">
+      <section className="flex flex-col items-center pt-12 pb-12 min-h-screen justify-start overflow-hidden relative">
+        {/* Spline 3D Image Container - Large 80vh height with 200% inner height for depth */}
+        <div className="relative w-full h-[80vh] overflow-hidden">
+          <div className="absolute inset-0 transform scale-[1.5] translate-y-[-10%] md:translate-y-[-15%]">
             <iframe 
               src='https://my.spline.design/interactivecharactergirl-MVNUAdogrsMEuxlLKVnsyyZB/' 
               frameBorder='0' 
               width='100%' 
-              height='100%'
+              height='200%'
               title="Spline 3D Character"
               className="pointer-events-auto"
             ></iframe>
           </div>
+          {/* Bottom Gradient for smooth transition */}
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#FDFCF0] to-transparent z-10"></div>
         </div>
 
-        {/* Hero Card - Overlapping at the bottom of the huge character */}
-        <div className="w-full max-w-md px-6 z-10 -mt-40 md:-mt-52 relative">
-          <div className="bg-white/90 backdrop-blur-2xl p-7 rounded-[2.5rem] border-[5px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] animate-float text-center">
-            <h1 className="text-3xl font-jua text-blue-600 leading-tight mb-2">
+        {/* Hero Card */}
+        <div className="w-full max-w-md px-6 z-20 relative -mt-32 md:-mt-40">
+          <div className="bg-white/90 backdrop-blur-2xl p-8 rounded-[3rem] border-[6px] border-white shadow-[0_25px_60px_rgba(0,0,0,0.2)] animate-float text-center">
+            <h1 className="text-4xl font-jua text-blue-600 leading-tight mb-3">
               당신의 <br />
               <span className="text-rose-500 underline decoration-yellow-300 decoration-wavy">유럽 이야기</span>
             </h1>
-            <p className="text-lg font-gaegu font-bold text-gray-700 mb-5">
+            <p className="text-xl font-gaegu font-bold text-gray-700 mb-6">
               지루한 계획 대신 설렘을 한 페이지 더
             </p>
             <div className="relative group">
@@ -112,17 +114,17 @@ const App: React.FC = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleCreateItinerary()}
                 placeholder="어디로 떠날까요? (예: 파리 3일)"
-                className="w-full pl-6 pr-14 py-4.5 text-base rounded-full border-[3px] border-yellow-300 focus:border-rose-400 outline-none shadow-lg text-gray-800 placeholder-gray-400 font-gaegu transition-all"
+                className="w-full pl-6 pr-14 py-5 text-lg rounded-full border-[4px] border-yellow-300 focus:border-rose-400 outline-none shadow-xl text-gray-800 placeholder-gray-400 font-gaegu transition-all"
               />
               <button 
                 onClick={handleCreateItinerary}
                 disabled={loading}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full transition-all shadow-md active:scale-90"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white p-3.5 rounded-full transition-all shadow-md active:scale-90"
               >
                 {loading ? (
-                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                   <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 )}
